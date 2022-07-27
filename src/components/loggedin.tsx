@@ -32,7 +32,7 @@ export function LoggedIn() {
 function savePost(){
   axios
       .put("http://localhost:3000/users/"+LocalStorageKey, {
-        _id: LocalStorageKey,
+        username: Data?.username,
         subscribe: checked 
       }, {
         headers: { 'Content-type': 'application/json; charset=UTF-8' }
@@ -53,7 +53,7 @@ function savePost(){
       defaultChecked={checked}
       onChange={() => setChecked(!checked)}/>
 
-      <p>Prenumerationsstatus: {String(Data?.subscribe)}</p>
+      <p>Din Prenumerationsstatus för tillfället: <strong>{String(Data?.subscribe)}</strong></p>
       <br />
       <button onClick={savePost}>Skicka in</button>
     </>
